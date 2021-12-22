@@ -34,9 +34,31 @@ function insertTaskOnPage(task) {
   containerEl.appendChild(listEl);
 }
 
+function addTask() {
+  let nameTaskEl = document.querySelector("input");
+  let categoryEl = document.querySelector("select");
+
+  nameTaskEl.classList.add("nova-tarefa-nome");
+  categoryEl.classList.add("nova-tarefa-categoria");
+  const task = {
+    name: nameTaskEl.value,
+    category: categoryEl.value,
+    done: false,
+  };
+
+  insertTaskOnPage(task);
+  nameTaskEl.value = "";
+  nameTaskEl.focus();
+}
+
+let buttonInsert = document.querySelector("#incluir-nova-tarefa");
+
 // call Function
 cleanTasks();
 tasks.forEach(insertTaskOnPage);
+buttonInsert.addEventListener("click", () => {
+  addTask();
+});
 /*
     { name: "Consertar Interfone", category: "Compras", done: false },
     { name: "Implementar explicação explorável de redes neurais", category: "Estudos", done: false },
