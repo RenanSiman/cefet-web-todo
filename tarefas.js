@@ -52,13 +52,16 @@ function addTask() {
 }
 
 let buttonInsert = document.querySelector("#incluir-nova-tarefa");
+let filter = document.querySelector("#filtros")
 
 // call Function
 cleanTasks();
 tasks.forEach(insertTaskOnPage);
 buttonInsert.addEventListener("click", () => {
-  addTask();
+    addTask();
 });
+
+filter.addEventListener()
 /*
     { name: "Consertar Interfone", category: "Compras", done: false },
     { name: "Implementar explicação explorável de redes neurais", category: "Estudos", done: false },
